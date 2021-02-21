@@ -50,4 +50,5 @@ SOURCES += \
 
 HEADERS += \
 	src/Global.h \
-	src/MorseServer.h
+	src/MorseServer.h \
+	src/controllers/AbstractController.h

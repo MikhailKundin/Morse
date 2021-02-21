@@ -2,3 +2,5 @@
 
 HttpSessionStore* sessionStore;
 StaticFileController* staticFileController;
+TemplateCache* templateCache;
+FileLogger* fileLogger;

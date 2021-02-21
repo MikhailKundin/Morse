@@ -2,6 +2,7 @@
 #include <QDir>
 
 #include "MorseServer.h"
+#include <QString>
 
 using namespace stefanfrings;
 
@@ -12,9 +13,13 @@ int main(int argc, char *argv[])
 	QCoreApplication app(argc, argv);
 	app.setApplicationName("MorseServer");
 	
+	qWarning("Application started");
+	
 	new MorseServer(searchConfigFile(), &app);
 	
 	return app.exec();
+	
+	qWarning("Application finished");
 }
 
 // Поиск файла с настрйками
@@ -25,17 +30,8 @@ QString searchConfigFile()
     QString fileName(appName + ".ini");
 
     QStringList searchList;
+	searchList.append(binDir+"/../../../etc");
     searchList.append(binDir);
-    searchList.append(binDir + "/etc");
-    searchList.append(binDir+"/../etc");
-    searchList.append(binDir+"/../../etc"); // for development without shadow build
-    searchList.append(binDir+"/../"+appName+"/etc"); // for development with shadow build
-    searchList.append(binDir+"/../../"+appName+"/etc"); // for development with shadow build
-    searchList.append(binDir+"/../../../"+appName+"/etc"); // for development with shadow build
-    searchList.append(binDir+"/../../../../"+appName+"/etc"); // for development with shadow build
-    searchList.append(binDir+"/../../../../../"+appName+"/etc"); // for development with shadow build
-    searchList.append(QDir::rootPath()+"etc/opt");
-    searchList.append(QDir::rootPath()+"etc");
 
     foreach (QString dir, searchList)
     {
@@ -43,16 +39,16 @@ QString searchConfigFile()
         if (file.exists())
         {
             fileName=QDir(file.fileName()).canonicalPath();
-            qDebug("Using config file %s",qPrintable(fileName));
+            qWarning("Using config file %s", qPrintable(fileName));
             return fileName;
         }
     }
 
-    // not found
+    // Файл не найден
     foreach (QString dir, searchList)
     {
-        qWarning("%s/%s not found",qPrintable(dir),qPrintable(fileName));
+        qWarning("%s/%s not found", qPrintable(dir), qPrintable(fileName));
     }
-    qFatal("Cannot find config file %s",qPrintable(fileName));
+    qFatal("Cannot find config file %s", qPrintable(fileName));
 	return "";
 }
