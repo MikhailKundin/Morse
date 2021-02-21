@@ -1,9 +1,11 @@
 QT -= gui
+QT += core network sql
 
-CONFIG += c++11 console
-CONFIG -= app_bundle
+TARGET = MorseServer
+TEMPLATE = app
 
-CONFIG -= debug_and_release debug_and_release_target
+CONFIG += c++17 console
+CONFIG -= app_bundle debug_and_release debug_and_release_target
 
 CONFIG(debug, debug|release){
 win32:DESTDIR = build/Windows/debug
@@ -33,9 +35,17 @@ unix:RCC_DIR = build/Unix/temp/release/rcc
 unix:UI_DIR = build/Unix/temp/release/ui
 }
 
-SOURCES += \
-        main.cpp
+include(QtWebApp/httpserver/httpserver.pri)
+include(QtWebApp/logging/logging.pri)
+include(QtWebApp/templateengine/templateengine.pri)
 
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+SOURCES += \
+        src/MorseServer.cpp \
+        src/main.cpp
+
+#qnx: target.path = /tmp/$${TARGET}/bin
+#else: unix:!android: target.path = /opt/$${TARGET}/bin
+#!isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+	src/MorseServer.h
