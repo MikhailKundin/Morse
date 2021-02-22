@@ -2,7 +2,6 @@
 #define ABSTRACTCONTROLLER_H
 
 #include "httprequesthandler.h"
-#include "../Global.h"
 
 using namespace stefanfrings;
 

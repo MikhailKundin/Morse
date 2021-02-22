@@ -1,11 +1,15 @@
 #include "MorseServer.h"
 
 #include "httplistener.h"
-#include "Global.h"
 #include "controllers/AbstractController.h"
 #include "controllers/RegistrationController.h"
 #include "controllers/AuthenticationController.h"
 #include "controllers/MainController.h"
+
+HttpSessionStore* sessionStore;
+StaticFileController* staticFileController;
+TemplateCache* templateCache;
+FileLogger* fileLogger;
 
 MorseServer::MorseServer(QString configFullName, QObject *parent) 
 	: HttpRequestHandler(parent)

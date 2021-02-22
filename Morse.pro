@@ -40,7 +40,6 @@ include(QtWebApp/logging/logging.pri)
 include(QtWebApp/templateengine/templateengine.pri)
 
 SOURCES += \
-        src/Global.cpp \
         src/MorseServer.cpp \
         src/controllers/AbstractController.cpp \
         src/controllers/AuthenticationController.cpp \
@@ -53,7 +52,6 @@ SOURCES += \
 #!isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-	src/Global.h \
 	src/MorseServer.h \
 	src/controllers/AbstractController.h \
 	src/controllers/AuthenticationController.h \
