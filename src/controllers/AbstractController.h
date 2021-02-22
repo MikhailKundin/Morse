@@ -2,12 +2,14 @@
 #define ABSTRACTCONTROLLER_H
 
 #include "httprequesthandler.h"
+#include "../Global.h"
 
 using namespace stefanfrings;
 
-class AbstractController
+class AbstractController : public QObject
 {
 public:
+	AbstractController(QObject* parent = nullptr);
 	virtual void requestHandler(HttpRequest& request, HttpResponse& response) = 0;
 	virtual ~AbstractController() = default;
 };

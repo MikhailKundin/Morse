@@ -2,6 +2,10 @@
 
 #include "httplistener.h"
 #include "Global.h"
+#include "controllers/AbstractController.h"
+#include "controllers/RegistrationController.h"
+#include "controllers/AuthenticationController.h"
+#include "controllers/MainController.h"
 
 MorseServer::MorseServer(QString configFullName, QObject *parent) 
 	: HttpRequestHandler(parent)
@@ -19,7 +23,7 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	// Загрузка настроек сатических файлов
 	QSettings* staticSettings = new QSettings(configFullName, QSettings::IniFormat, this);
     staticSettings->beginGroup("static");
-    sessionStore = new HttpSessionStore(staticSettings, this);
+    staticFileController = new StaticFileController(staticSettings, this);
 	
 	// Загрузка настроек шаблонов
 	QSettings* templateSettings = new QSettings(configFullName, QSettings::IniFormat, this);
@@ -32,10 +36,39 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 //    fileLogger = new FileLogger(loggerSettings, 10000, this);
 //	fileLogger->installMsgHandler();
 	
-	qDebug("Settings loaded");
+	qInfo("Settings loaded");
+	
+	// Сопоставление страницы и контроллера
+	controllers.insert("/sign-up", new RegistrationController(this));
+	controllers.insert("/sign-in", new AuthenticationController(this));
+	controllers.insert("/main", new MainController(this));
+	
+	// Заполнение списка типов статических файлов
+	staticList.append(".css");
+	staticList.append(".js");
+	staticList.append(".png");
+	staticList.append(".jpg");
 }
 
 void MorseServer::service(HttpRequest &request, HttpResponse &response)
 {
+	// Передача управления нужному контроллеру
+	QString path = request.getPath();
+	AbstractController* controller = controllers.value(path);
+	if (controller != nullptr)
+	{
+		return controller->requestHandler(request, response);
+	}
 	
+	// Если нужный контроллер не найден, то проверка на запрос статических файлов
+	for (int i = 0; i < staticList.size(); i++)
+	{
+		if (path.endsWith(staticList.at(i)))
+		{
+			return staticFileController->service(request, response);
+		}
+	}
+	
+	// Если запрашивались не статические файлы, то была допущена ошибка в пути.
+	response.setStatus(404, "Страница не найдена");
 }

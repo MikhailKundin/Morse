@@ -42,6 +42,10 @@ include(QtWebApp/templateengine/templateengine.pri)
 SOURCES += \
         src/Global.cpp \
         src/MorseServer.cpp \
+        src/controllers/AbstractController.cpp \
+        src/controllers/AuthenticationController.cpp \
+        src/controllers/MainController.cpp \
+        src/controllers/RegistrationController.cpp \
         src/main.cpp
 
 #qnx: target.path = /tmp/$${TARGET}/bin
@@ -51,4 +55,7 @@ SOURCES += \
 HEADERS += \
 	src/Global.h \
 	src/MorseServer.h \
-	src/controllers/AbstractController.h
+	src/controllers/AbstractController.h \
+	src/controllers/AuthenticationController.h \
+	src/controllers/MainController.h \
+	src/controllers/RegistrationController.h
