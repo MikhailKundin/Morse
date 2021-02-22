@@ -52,8 +52,15 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 
 void MorseServer::service(HttpRequest &request, HttpResponse &response)
 {
-	// Передача управления нужному контроллеру
 	QString path = request.getPath();
+	
+	// Если путь заканчивается на "/", то удаление этого символа
+	if (path.endsWith("/"))
+	{
+		path.remove(path.size()-1, 1);
+	}
+	
+	// Передача управления нужному контроллеру
 	AbstractController* controller = controllers.value(path);
 	if (controller != nullptr)
 	{
@@ -70,5 +77,6 @@ void MorseServer::service(HttpRequest &request, HttpResponse &response)
 	}
 	
 	// Если запрашивались не статические файлы, то была допущена ошибка в пути.
-	response.setStatus(404, "Страница не найдена");
+	response.setStatus(404, "Not found");
+	response.write(qPrintable(QString::fromUtf8("404: Страница не найдена")));
 }

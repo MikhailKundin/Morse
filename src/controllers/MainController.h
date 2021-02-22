@@ -1,11 +1,13 @@
 #ifndef MAINCONTROLLER_H
 #define MAINCONTROLLER_H
 
+#include "AbstractController.h"
 
-class MainController
+class MainController : public AbstractController
 {
 public:
-	MainController();
+	MainController(QObject* parent = nullptr);
+	virtual void requestHandler(HttpRequest& request, HttpResponse& response) override;
 };
 
 #endif // MAINCONTROLLER_H
