@@ -40,20 +40,26 @@ include(QtWebApp/logging/logging.pri)
 include(QtWebApp/templateengine/templateengine.pri)
 
 SOURCES += \
+        src/Database.cpp \
         src/MorseServer.cpp \
         src/controllers/AbstractController.cpp \
         src/controllers/AuthenticationController.cpp \
         src/controllers/MainController.cpp \
         src/controllers/RegistrationController.cpp \
-        src/main.cpp
+        src/main.cpp \
+        src/models/AccessModel.cpp \
+        src/models/Model.cpp
 
 #qnx: target.path = /tmp/$${TARGET}/bin
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
 #!isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+	src/Database.h \
 	src/MorseServer.h \
 	src/controllers/AbstractController.h \
 	src/controllers/AuthenticationController.h \
 	src/controllers/MainController.h \
-	src/controllers/RegistrationController.h
+	src/controllers/RegistrationController.h \
+	src/models/AccessModel.h \
+	src/models/Model.h

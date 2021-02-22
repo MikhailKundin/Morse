@@ -10,6 +10,7 @@ HttpSessionStore* sessionStore;
 StaticFileController* staticFileController;
 TemplateCache* templateCache;
 FileLogger* fileLogger;
+Database* database;
 
 MorseServer::MorseServer(QString configFullName, QObject *parent) 
 	: HttpRequestHandler(parent)
@@ -39,6 +40,11 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 //    loggerSettings->beginGroup("logging");
 //    fileLogger = new FileLogger(loggerSettings, 10000, this);
 //	fileLogger->installMsgHandler();
+	
+	// Загрузка настроек базы данных
+	QSettings* databaseSettings = new QSettings(configFullName, QSettings::IniFormat, this);
+	databaseSettings->beginGroup("database");
+	database = new Database(databaseSettings, this);
 	
 	qInfo("Settings loaded");
 	
