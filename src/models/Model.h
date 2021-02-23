@@ -9,7 +9,8 @@ class Model : public QObject
 {
 public:
 	Model(QObject* parent = nullptr);
-	virtual bool isAuthorized(HttpRequest& request);
+	virtual bool isAuthorized(HttpRequest& request, HttpResponse& response);
+	virtual void updateKey(HttpRequest& request, HttpResponse& response);
 };
 
 #endif // MODEL_H

@@ -70,9 +70,14 @@ bool AccessModel::isRegistrationSuccessful(HttpRequest &request)
 	return true;
 }
 
+// Аутентификация
 bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse &response)
 {
-	
+	QByteArray login = request.getParameter("login");
+	QByteArray password = request.getParameter("password");
+	QByteArray salt = database->getSalt(login);
+	password = hashPassword(password, salt);
+	if ()
 }
 
 // Хеширование пароля
