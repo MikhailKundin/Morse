@@ -75,10 +75,11 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	
 }
 
+// Хеширование пароля
 QByteArray AccessModel::hashPassword(QByteArray password, QByteArray salt)
 {
 	password += salt+"Gz7.kA02Gkl&QG>";
-	for (qint8 i = 0; i < 16; i++)
+	for (quint8 i = 0; i < 255; i++)
 	{
 		password = QCryptographicHash::hash(password, QCryptographicHash::Sha512);
 	}
@@ -92,9 +93,9 @@ QByteArray AccessModel::generateSalt()
 	QByteArray saltSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 							 "abcdefghijklmnopqrstuvwxyz"
 							 "0123456789"
-							 "!@#$%^&*()_+№;:?*+{}[]<>,.";
+							 "!@#$%^&*()_+№;:?-+{}[]<>,.";
 	quint8 range = static_cast<quint8>(saltSymbols.length());
-	qint8 length = QRandomGenerator::global()->generate() % 6 + 10;
+	qint8 length = QRandomGenerator::global()->generate() % 7 + 10;
 	for (qint8 i = 0; i < length; i++)
 	{
 		salt += saltSymbols.at(static_cast<char>(QRandomGenerator::global()->generate() % range));

@@ -78,7 +78,7 @@ void MorseServer::service(HttpRequest &request, HttpResponse &response)
 	}
 	
 	// Если нужный контроллер не найден, то проверка на запрос статических файлов
-	for (int i = 0; i < staticList.size(); i++)
+	for (quint8 i = 0; i < staticList.size(); i++)
 	{
 		if (path.endsWith(staticList.at(i)))
 		{
