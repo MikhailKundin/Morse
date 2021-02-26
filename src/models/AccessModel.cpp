@@ -77,7 +77,8 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	QByteArray password = request.getParameter("password");
 	QByteArray salt = database->getSalt(login);
 	password = hashPassword(password, salt);
-	if ()
+	//if ()
+	return false;
 }
 
 // Хеширование пароля

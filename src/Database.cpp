@@ -1,6 +1,7 @@
 #include "Database.h"
 
 #include <QSqlQuery>
+#include <QSqlError>
 
 Database::Database(QSettings *databaseSettings, QObject *parent)
 	: QObject(parent)
@@ -11,13 +12,20 @@ Database::Database(QSettings *databaseSettings, QObject *parent)
 	m_db.setUserName(databaseSettings->value("userName").toString());
 	m_db.setPassword(databaseSettings->value("password").toString());
 	m_db.setPort(databaseSettings->value("port").toInt());
+	qDebug("ping");
 	if (m_db.open())
 	{
 		qInfo("Connected to database");
+//		QSqlQuery query(m_db);
+//		query.prepare("Select name from RecordTable "
+//					  "where id = 1");
+//		query.exec();
+//		qDebug(qPrintable(query.value(0).toString()));
 	}
 	else
 	{
-		//qFatal("Unable to connect to database");
+		qDebug(qPrintable(m_db.lastError().databaseText()));
+		qFatal("Unable to connect to database");
 	}
 }
 
@@ -45,13 +53,13 @@ bool Database::isUserExists(QByteArray login, QByteArray password)
 }
 
 // Добавление ключа конкретному логину
-void Database::addKey(QByteArray login, QByteArray key)
+void Database::updateKey(QByteArray id, QByteArray key)
 {
 	
 }
 
 // Поиск связки логин-ключ
-bool Database::isKeyCorrect(QByteArray login, QByteArray key)
+bool Database::isKeyExists(QByteArray id, QByteArray key)
 {
 	return false;
 }
@@ -75,13 +83,13 @@ QString Database::getCode(QString word)
 }
 
 // Получение очков логина
-qint32 Database::getPoints(QString login)
+qint32 Database::getPoints(QByteArray id)
 {
 	return 0;
 }
 
 // Запись очков логину
-void Database::setPoints(QString login)
+void Database::setPoints(QByteArray id)
 {
 	
 }

@@ -15,14 +15,14 @@ Model::Model(QObject *parent)
 // Авторизирован ли пользователь
 bool Model::isAuthorized(HttpRequest &request, HttpResponse &response)
 {
-	QByteArray login = request.getCookie("login");
+	QByteArray id = request.getCookie("id");
 	QByteArray key = request.getCookie("key");
 	
 	// Если проверка не пройдена, удаление ключа из БД, чтобы пользователю
 	// необходимо было заново пройти аутентификацию
-	if (!database->isKeyCorrect(login, key))
+	if (!database->isKeyExists(id, key))
 	{
-		database->addKey(login, "");
+		database->updateKey(id, "");
 		return false;
 	}
 	
@@ -49,8 +49,8 @@ void Model::updateKey(HttpRequest &request, HttpResponse &response)
 	response.setCookie(HttpCookie("sessionid", "", 0));
 	
 	// Запись ключа в БД
-	QByteArray login = request.getCookie("login");
-	database->addKey(login, key);
+	QByteArray id = request.getCookie("id");
+	database->updateKey(id, key);
 	
 	// Запись ключа в куку
 	HttpCookie keyCookie("key", key, 31536000); // 365 дней

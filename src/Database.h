@@ -16,15 +16,15 @@ public:
 	QByteArray getSalt(QByteArray login);
 	bool isUserExists(QByteArray login, QByteArray password);
 	
-	void addKey(QByteArray login, QByteArray key);
-	bool isKeyCorrect(QByteArray login, QByteArray key);
+	void updateKey(QByteArray id, QByteArray key);
+	bool isKeyExists(QByteArray id, QByteArray key);
 	
 	qint32 getWordCount();
 	QString getWord(qint32 id);
 	QString getCode(QString word);
 	
-	qint32 getPoints(QString login);
-	void setPoints(QString login);
+	qint32 getPoints(QByteArray id);
+	void setPoints(QByteArray id);
 	
 private:
 	QSqlDatabase m_db;
