@@ -1,30 +1,23 @@
 #include "Database.h"
 
 #include <QSqlQuery>
-#include <QSqlError>
 
 Database::Database(QSettings *databaseSettings, QObject *parent)
 	: QObject(parent)
 {
+	qInfo("Connecting to database...");
 	m_db = QSqlDatabase::addDatabase(databaseSettings->value("type").toString());
 	m_db.setDatabaseName(databaseSettings->value("dbName").toString());
 	m_db.setHostName(databaseSettings->value("hostName").toString());
+	m_db.setPort(databaseSettings->value("port").toInt());
 	m_db.setUserName(databaseSettings->value("userName").toString());
 	m_db.setPassword(databaseSettings->value("password").toString());
-	m_db.setPort(databaseSettings->value("port").toInt());
-	qDebug("ping");
 	if (m_db.open())
 	{
 		qInfo("Connected to database");
-//		QSqlQuery query(m_db);
-//		query.prepare("Select name from RecordTable "
-//					  "where id = 1");
-//		query.exec();
-//		qDebug(qPrintable(query.value(0).toString()));
 	}
 	else
 	{
-		qDebug(qPrintable(m_db.lastError().databaseText()));
 		qFatal("Unable to connect to database");
 	}
 }

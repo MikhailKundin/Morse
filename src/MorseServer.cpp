@@ -58,6 +58,8 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	staticList.append(".js");
 	staticList.append(".png");
 	staticList.append(".jpg");
+	
+	qInfo("Server is running");
 }
 
 void MorseServer::service(HttpRequest &request, HttpResponse &response)

@@ -84,7 +84,7 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 // Хеширование пароля
 QByteArray AccessModel::hashPassword(QByteArray password, QByteArray salt)
 {
-	password += salt+"Gz7.kA02Gkl&QG>";
+	password += salt+"Gz7.kA02Gkl&QG>m";
 	for (quint8 i = 0; i < 255; i++)
 	{
 		password = QCryptographicHash::hash(password, QCryptographicHash::Sha512);
