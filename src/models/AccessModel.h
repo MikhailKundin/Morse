@@ -10,10 +10,6 @@ public:
 	
 	bool isRegistrationSuccessful(HttpRequest& request);
 	bool isAuthenticationSuccessful(HttpRequest& request, HttpResponse& response);
-	
-private:
-	QByteArray hashPassword(QByteArray password, QByteArray salt);
-	QByteArray generateSalt();
 };
 
 #endif // ACCESSMODEL_H

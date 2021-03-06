@@ -1,8 +1,5 @@
 #include "AccessModel.h"
 
-#include <QCryptographicHash>
-#include <QRandomGenerator>
-
 #include "../Database.h"
 
 extern Database* database;
@@ -75,36 +72,35 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 {
 	QByteArray login = request.getParameter("login");
 	QByteArray password = request.getParameter("password");
-	QByteArray salt = database->getSalt(login);
+	
+	QByteArray salt = "";
+	QByteArray hashedPassword = "";
+	QByteArray id = "";
+	
+	// Получение из БД строки login
+	// Если такой строки нет, то неправильный логин
+	if (!database->getUserInfo(login, id, password, salt))
+	{
+		return false;
+	}
+	
+	// Если строка найдена, но значения по каким-то причинам не обновились, то ошибка
+	if (salt == "" || hashedPassword == "" || id == "")
+	{
+		return false;
+	}
+	
+	// Хеширование введенного пароля и сравнение его с паролем из БД.
+	// Если пароли не совпадают, то ошибка
 	password = hashPassword(password, salt);
-	//if ()
-	return false;
-}
-
-// Хеширование пароля
-QByteArray AccessModel::hashPassword(QByteArray password, QByteArray salt)
-{
-	password += salt+"Gz7.kA02Gkl&QG>m";
-	for (quint8 i = 0; i < 255; i++)
+	if (password != hashedPassword)
 	{
-		password = QCryptographicHash::hash(password, QCryptographicHash::Sha512);
+		return false;
 	}
-	return password;
-}
-
-// Генерация "соли"
-QByteArray AccessModel::generateSalt()
-{
-	QByteArray salt;
-	QByteArray saltSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-							 "abcdefghijklmnopqrstuvwxyz"
-							 "0123456789"
-							 "!@#$%^&*()_+№;:?-+{}[]<>,.";
-	quint8 range = static_cast<quint8>(saltSymbols.length());
-	qint8 length = QRandomGenerator::global()->generate() % 7 + 10;
-	for (qint8 i = 0; i < length; i++)
-	{
-		salt += saltSymbols.at(static_cast<char>(QRandomGenerator::global()->generate() % range));
-	}
-	return salt;
+	
+	// Создание ключа аутентификации и кук
+	response.setCookie(HttpCookie("id", id, 31536000)); // 365 дней
+	updateKey(request, response, id);
+	
+	return true;
 }

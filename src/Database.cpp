@@ -34,15 +34,20 @@ void Database::addUser(QByteArray login, QByteArray password, QByteArray salt)
 	
 }
 
-QByteArray Database::getSalt(QByteArray login)
-{
-	return "";
-}
+//QByteArray Database::getSalt(QByteArray login)
+//{
+//	return "";
+//}
 
 // Поиск связки логин-пароль в БД
-bool Database::isUserExists(QByteArray login, QByteArray password)
+//bool Database::isUserExists(QByteArray login, QByteArray password)
+//{
+//	return false;
+//}
+
+bool Database::getUserInfo(QByteArray login, QByteArray &id, QByteArray &password, QByteArray &salt)
 {
-	return false;
+	
 }
 
 // Добавление ключа конкретному логину
@@ -82,7 +87,7 @@ qint32 Database::getPoints(QByteArray id)
 }
 
 // Запись очков логину
-void Database::setPoints(QByteArray id)
+void Database::setPoints(QByteArray id, qint32 points)
 {
 	
 }
