@@ -5,8 +5,8 @@
 extern Database* database;
 extern HttpSessionStore* sessionStore;
 
-AccessModel::AccessModel(QObject *parent)
-	: Model(parent)
+AccessModel::AccessModel(QObject *parent) :
+	Model(parent)
 {
 	
 }
@@ -75,7 +75,7 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	
 	QByteArray salt = "";
 	QByteArray hashedPassword = "";
-	QByteArray id = "";
+	qint32 id = -1;
 	
 	// Получение из БД строки login
 	// Если такой строки нет, то неправильный логин
@@ -85,7 +85,7 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	}
 	
 	// Если строка найдена, но значения по каким-то причинам не обновились, то ошибка
-	if (salt == "" || hashedPassword == "" || id == "")
+	if (salt == "" || hashedPassword == "" || id == -1)
 	{
 		return false;
 	}
@@ -99,7 +99,7 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	}
 	
 	// Создание ключа аутентификации и кук
-	response.setCookie(HttpCookie("id", id, 31536000)); // 365 дней
+	response.setCookie(HttpCookie("id", QByteArray::number(id), 31536000)); // 365 дней
 	updateKey(request, response, id);
 	
 	return true;

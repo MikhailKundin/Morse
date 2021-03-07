@@ -1,7 +1,7 @@
 #include "MainController.h"
 
-MainController::MainController(QObject *parent)
-	: AbstractController(parent)
+MainController::MainController(QObject *parent) :
+	AbstractController(parent)
 {
 	
 }

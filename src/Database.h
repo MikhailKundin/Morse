@@ -13,19 +13,17 @@ public:
 	bool ifLoginExists(QByteArray login);
 	void addUser(QByteArray login, QByteArray password, QByteArray salt);
 	
-//	QByteArray getSalt(QByteArray login);
-//	bool isUserExists(QByteArray login, QByteArray password);
-	bool getUserInfo(QByteArray login, QByteArray& id, QByteArray& password, QByteArray& salt);
+	bool getUserInfo(QByteArray login, qint32& id, QByteArray& password, QByteArray& salt);
 	
-	void updateKey(QByteArray id, QByteArray key);
-	bool isKeyExists(QByteArray id, QByteArray key);
+	void updateKey(qint32 id, QByteArray key);
+	bool isKeyExists(qint32 id, QByteArray key);
 	
-	qint32 getWordCount();
+	quint32 getWordCount();
 	QString getWord(qint32 id);
 	QString getCode(QString word);
 	
-	qint32 getPoints(QByteArray id);
-	void setPoints(QByteArray id, qint32 points);
+	qint32 getPoints(qint32 id);
+	void setPoints(qint32 id, qint32 points);
 	
 private:
 	QSqlDatabase m_db;

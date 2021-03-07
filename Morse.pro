@@ -48,6 +48,7 @@ SOURCES += \
         src/controllers/RegistrationController.cpp \
         src/main.cpp \
         src/models/AccessModel.cpp \
+        src/models/MainModel.cpp \
         src/models/Model.cpp
 
 #qnx: target.path = /tmp/$${TARGET}/bin
@@ -62,4 +63,5 @@ HEADERS += \
 	src/controllers/MainController.h \
 	src/controllers/RegistrationController.h \
 	src/models/AccessModel.h \
+	src/models/MainModel.h \
 	src/models/Model.h

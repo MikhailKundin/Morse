@@ -1,7 +1,7 @@
 #include "AuthenticationController.h"
 
-AuthenticationController::AuthenticationController(QObject *parent)
-	: AbstractController(parent)
+AuthenticationController::AuthenticationController(QObject *parent) :
+	AbstractController(parent)
 {
 	
 }

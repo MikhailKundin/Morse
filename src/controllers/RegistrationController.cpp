@@ -1,7 +1,7 @@
 #include "RegistrationController.h"
 
-RegistrationController::RegistrationController(QObject *parent)
-	: AbstractController(parent)
+RegistrationController::RegistrationController(QObject *parent) :
+	AbstractController(parent)
 {
 	
 }
