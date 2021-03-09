@@ -104,3 +104,11 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	
 	return true;
 }
+
+// Удаление ключа из БД и куки
+void AccessModel::deauthorization(HttpRequest &request, HttpResponse &response)
+{
+	qint32 id = request.getCookie("id").toInt();
+	database->updateKey(id, "NULL");
+	response.setCookie(HttpCookie("key", "NULL", 0));
+}

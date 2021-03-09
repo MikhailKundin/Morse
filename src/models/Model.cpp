@@ -21,6 +21,11 @@ bool Model::isAuthorized(HttpRequest &request, HttpResponse &response)
 	qint32 id = request.getCookie("id").toInt();
 	QByteArray key = request.getCookie("key");
 	
+	if (key == "NULL" || key == "")
+	{	
+		return false;
+	}
+	
 	// Если проверка не пройдена, удаление ключа из БД, чтобы пользователю
 	// необходимо было заново пройти аутентификацию
 	if (!database->isKeyExists(id, key))
