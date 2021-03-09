@@ -23,9 +23,9 @@ void MainView::service(HttpRequest &request, HttpResponse &response, QString sco
 	if (request.getPath() == "/main") // Главная траница
 	{
 		Template temp = templateCache->getTemplate("main");
-		temp.setVariable("score", score); // Количество очков
-		temp.setVariable("message", message); // Слово
-		temp.setVariable("error", error); // Предыдущий результат
+		temp.setVariable("Score", score); // Количество очков
+		temp.setVariable("Message", message); // Слово
+		temp.setVariable("err", error); // Предыдущий результат
 		response.write(temp.toUtf8(), true);
 	}
 	else // Ошибка
