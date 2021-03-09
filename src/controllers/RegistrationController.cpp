@@ -6,7 +6,7 @@ RegistrationController::RegistrationController(QObject *parent) :
 	
 }
 
-void RegistrationController::requestHandler(HttpRequest &request, HttpResponse &response)
+void RegistrationController::service(HttpRequest &request, HttpResponse &response)
 {
 	
 }

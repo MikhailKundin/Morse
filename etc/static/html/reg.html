@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Регистрация</title>
+	<link rel="stylesheet" href="css/stylereg.css">
+</head>
+<body>
+	<form method="POST" onsubmit="return validate_sigup()">
+		<h1 title="Форма регистрации">Регистрация</h1>
+		<div class="group">
+			<label for="">Логин:</label>
+			<input type="text" name="login">
+		</div>
+		<div class="group">
+			<label for="">Пароль:</label>
+			<input type="password" name="password">
+		</div>
+		<div class="group">
+			<label for="">Повторите пароль:</label>
+			<input type="password" "password">
+		</div>
+		<div class="group">
+			<center><button type="submit" name="submit">Регистрация</button></center>
+		</div>
+		<div class="group">
+			<center><button button name="log">На вход</button></center>
+		</div>
+		<div id="err">
+			<span>{Message}</span>
+		</div>
+	</form>
+	
+</body>
+</html>

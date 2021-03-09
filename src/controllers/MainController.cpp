@@ -6,7 +6,7 @@ MainController::MainController(QObject *parent) :
 	
 }
 
-void MainController::requestHandler(HttpRequest &request, HttpResponse &response)
+void MainController::service(HttpRequest &request, HttpResponse &response)
 {
 	
 }

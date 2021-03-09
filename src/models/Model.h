@@ -9,6 +9,7 @@ class Model : public QObject
 {
 public:
 	Model(QObject* parent = nullptr);
+	virtual ~Model() = default;
 	virtual bool isAuthorized(HttpRequest& request, HttpResponse& response);
 	
 protected:

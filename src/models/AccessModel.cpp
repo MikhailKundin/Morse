@@ -12,8 +12,10 @@ AccessModel::AccessModel(QObject *parent) :
 }
 
 // Добавление нового пользователя, если это возможно
-bool AccessModel::isRegistrationSuccessful(HttpRequest &request)
+bool AccessModel::isRegistrationSuccessful(HttpRequest &request, HttpResponse& response)
 {
+	Q_UNUSED(response)
+	
 	// Проверка на существующий логин
 	QByteArray login = request.getParameter("login");
 	if (database->ifLoginExists(login))

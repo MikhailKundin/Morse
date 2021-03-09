@@ -30,8 +30,10 @@ QString MainModel::getWord(HttpRequest &request, HttpResponse &response)
 }
 
 // Получение количества очков пользователя
-qint32 MainModel::getPoints(HttpRequest &request)
+qint32 MainModel::getPoints(HttpRequest &request, HttpResponse& response)
 {
+	Q_UNUSED(response)
+	
 	qint32 id = request.getCookie("id").toInt();
 	qint32 points = database->getPoints(id);
 	return points;
@@ -62,8 +64,10 @@ bool MainModel::checkCode(HttpRequest &request, HttpResponse &response, QString 
 }
 
 // Добавление очков пользователю
-void MainModel::addPoints(HttpRequest &request, qint32 num)
+void MainModel::addPoints(HttpRequest &request, HttpResponse& response, qint32 num)
 {
+	Q_UNUSED(response)
+	
 	qint32 id = request.getCookie("id").toInt();
 	qint32 points = database->getPoints(id);
 	points += num;

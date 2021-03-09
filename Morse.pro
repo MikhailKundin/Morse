@@ -49,7 +49,10 @@ SOURCES += \
         src/main.cpp \
         src/models/AccessModel.cpp \
         src/models/MainModel.cpp \
-        src/models/Model.cpp
+        src/models/Model.cpp \
+        src/views/AbstractView.cpp \
+        src/views/AccessView.cpp \
+        src/views/MainView.cpp
 
 #qnx: target.path = /tmp/$${TARGET}/bin
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -64,4 +67,7 @@ HEADERS += \
 	src/controllers/RegistrationController.h \
 	src/models/AccessModel.h \
 	src/models/MainModel.h \
-	src/models/Model.h
+	src/models/Model.h \
+	src/views/AbstractView.h \
+	src/views/AccessView.h \
+	src/views/MainView.h

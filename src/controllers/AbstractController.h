@@ -9,7 +9,7 @@ class AbstractController : public QObject
 {
 public:
 	AbstractController(QObject* parent = nullptr);
-	virtual void requestHandler(HttpRequest& request, HttpResponse& response) = 0;
+	virtual void service(HttpRequest& request, HttpResponse& response) = 0;
 	virtual ~AbstractController() = default;
 };
 

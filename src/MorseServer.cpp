@@ -76,7 +76,7 @@ void MorseServer::service(HttpRequest &request, HttpResponse &response)
 	AbstractController* controller = controllers.value(path);
 	if (controller != nullptr)
 	{
-		return controller->requestHandler(request, response);
+		return controller->service(request, response);
 	}
 	
 	// Если нужный контроллер не найден, то проверка на запрос статических файлов

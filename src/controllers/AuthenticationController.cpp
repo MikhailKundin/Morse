@@ -6,7 +6,7 @@ AuthenticationController::AuthenticationController(QObject *parent) :
 	
 }
 
-void AuthenticationController::requestHandler(HttpRequest &request, HttpResponse &response)
+void AuthenticationController::service(HttpRequest &request, HttpResponse &response)
 {
 	
 }

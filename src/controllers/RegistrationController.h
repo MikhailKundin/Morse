@@ -7,7 +7,7 @@ class RegistrationController : public AbstractController
 {
 public:
 	RegistrationController(QObject* parent = nullptr);
-	virtual void requestHandler(HttpRequest& request, HttpResponse& response) override;
+	virtual void service(HttpRequest& request, HttpResponse& response) override;
 };
 
 #endif // REGISTRATIONCONTROLLER_H
