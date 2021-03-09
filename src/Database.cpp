@@ -109,7 +109,9 @@ void Database::updateKey(qint32 id, QByteArray key)
 	QSqlQuery query(m_db);
 	
 	// Обновления значения key в строке, которая содержит id
-	query.prepare("update morze.\"authorization\" az set \"key\" = :key where id_au = :id");
+	query.prepare("update morze.\"authorization\" az "
+				  "set \"key\" = :key "
+				  "where id_au = :id");
 	query.bindValue("id", id);
 	query.bindValue("key", key);
 	if (!query.exec())
@@ -134,7 +136,8 @@ quint32 Database::getWordCount()
 	QSqlQuery query(m_db);
 	
 	// Получения количества строк в таблице dictionary
-	query.prepare("select count(*) from morse.dictionary d");
+	query.prepare("select count(*) "
+				  "from morse.dictionary d");
 	if (!query.exec())
 	{
 		qWarning(qPrintable(query.lastError().text()));
@@ -160,7 +163,9 @@ QString Database::getWord(qint32 id)
 	QSqlQuery query(m_db);
 	
 	// Получение слова из строки, которая содержит значение id
-	query.prepare("select d.word from morse.dictionary d where d.id = :id");
+	query.prepare("select d.word "
+				  "from morse.dictionary d "
+				  "where d.id = :id");
 	query.bindValue(":id", id);
 	if (!query.exec())
 	{
@@ -171,6 +176,7 @@ QString Database::getWord(qint32 id)
 	if (!query.first())
 	{
 		qFatal("Word with id %s does not exist", qPrintable(QString::number(id)));
+		return "";
 	}
 	else
 	{
@@ -186,7 +192,9 @@ QString Database::getCode(QString word)
 	QSqlQuery query(m_db);
 	
 	// Получение кода из строки, которая содержит word
-	query.prepare("select d.code from morse.dictionary d where d.word = :word");
+	query.prepare("select d.code "
+				  "from morse.dictionary d "
+				  "where d.word = :word");
 	query.bindValue(":word", word);
 	if (!query.exec())
 	{
@@ -197,6 +205,7 @@ QString Database::getCode(QString word)
 	if (!query.first())
 	{
 		qFatal("Word %s does not exist", qPrintable(word));
+		return "";
 	}
 	else
 	{
@@ -226,6 +235,7 @@ qint32 Database::getPoints(qint32 id)
 	if (!query.first())
 	{
 		qFatal("User line with ID %s was not found in the results table", qPrintable(QString::number(id)));
+		return 0;
 	}
 	else
 	{

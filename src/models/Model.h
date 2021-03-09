@@ -10,11 +10,11 @@ class Model : public QObject
 public:
 	Model(QObject* parent = nullptr);
 	virtual bool isAuthorized(HttpRequest& request, HttpResponse& response);
-	virtual void updateKey(HttpRequest& request, HttpResponse& response, qint32 id);
 	
 protected:
-	QByteArray hashPassword(QByteArray password, QByteArray salt);
-	QByteArray generateSalt();
+	virtual void updateKey(HttpRequest& request, HttpResponse& response, qint32 id);
+	virtual QByteArray hashPassword(QByteArray password, QByteArray salt);
+	virtual QByteArray generateSalt();
 };
 
 #endif // MODEL_H
