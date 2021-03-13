@@ -36,10 +36,10 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
     templateCache = new TemplateCache(templateSettings, this);
 	
 	// Загрузка настроек лога
-	QSettings* loggerSettings = new QSettings(configFullName, QSettings::IniFormat, this);
-    loggerSettings->beginGroup("logging");
-    fileLogger = new FileLogger(loggerSettings, 10000, this);
-	fileLogger->installMsgHandler();
+//	QSettings* loggerSettings = new QSettings(configFullName, QSettings::IniFormat, this);
+//    loggerSettings->beginGroup("logging");
+//    fileLogger = new FileLogger(loggerSettings, 10000, this);
+//	fileLogger->installMsgHandler();
 	
 	// Загрузка настроек базы данных
 	QSettings* databaseSettings = new QSettings(configFullName, QSettings::IniFormat, this);

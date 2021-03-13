@@ -70,8 +70,8 @@ void Database::addUser(QString login, QString password, QString salt)
 	
 	// Добавление новой строки в таблицу авторизации
 	query.prepare("insert into morse.\"authorization\" (id_au, \"key\") "
-				  "select a.id, :key from morze.authentication "
-				  "where a.login = :login");
+				  "select id, :key from morse.authentication "
+				  "where login = :login");
 	query.bindValue(":key", "NULL");
 	query.bindValue(":login", login);
 	if (!query.exec())
@@ -81,10 +81,10 @@ void Database::addUser(QString login, QString password, QString salt)
 	}
 	
 	// Добавление новой строки в таблицу результатов
-	query.prepare("insert into morze.records (id_au, \"result\") "
-				  "select a.id, :result "
-				  "from morze.authentication "
-				  "where a.login = :login");
+	query.prepare("insert into morse.records (id_au, \"result\") "
+				  "select id, :result "
+				  "from morse.authentication "
+				  "where login = :login");
 	query.bindValue(":result", 0);
 	query.bindValue(":login", login);
 	if (!query.exec())
@@ -128,7 +128,7 @@ void Database::updateKey(qint32 id, QString key)
 	QSqlQuery query(m_db);
 	
 	// Обновления значения key в строке, которая содержит id
-	query.prepare("update morze.\"authorization\" az "
+	query.prepare("update morse.\"authorization\" az "
 				  "set \"key\" = :key "
 				  "where id_au = :id");
 	query.bindValue("id", id);
@@ -288,7 +288,7 @@ void Database::setPoints(qint32 id, qint32 points)
 	QSqlQuery query(m_db);
 	
 	// Обновление значения points в строке, которая содержит id
-	query.prepare("update morze.records "
+	query.prepare("update morse.records "
 				  "set \"result\" = :points "
 				  "where id_au = :id");
 	query.bindValue(":id", id);

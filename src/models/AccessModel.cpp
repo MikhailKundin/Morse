@@ -80,7 +80,7 @@ bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse 
 	
 	// Получение из БД строки login
 	// Если такой строки нет, то неправильный логин
-	if (!database->getUserInfo(login, id, password, salt))
+	if (!database->getUserInfo(login, id, hashedPassword, salt))
 	{
 		return false;
 	}
