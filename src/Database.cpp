@@ -97,10 +97,29 @@ void Database::addUser(QByteArray login, QByteArray password, QByteArray salt)
 // Получение идентификатора, пароля и соли пользователя
 bool Database::getUserInfo(QByteArray login, qint32 &id, QByteArray &password, QByteArray &salt)
 {
-	QSqlQuery quert(m_db);
+	QSqlQuery query(m_db);
 	
 	// Получение значений id, password и salt из строки, которая содержит login
-	return false;
+	query.prepare("select a.id, a.password, a.salt "
+				  "from morse.authentication a "
+				  "where a.login = :login");
+	query.bindValue(":login", login);
+	if (!query.exec())
+	{
+		qWarning(qPrintable(query.lastError().text()));
+		qFatal("Error retrieving user information from the DB");
+	}
+	
+	if (!query.first())
+	{
+		return false;
+	}
+	
+	id = query.value(0).toInt();
+	password = query.value(1).toByteArray();
+	salt = query.value(2).toByteArray();
+	
+	return true;
 }
 
 // Добавление ключа конкретному пользователю
@@ -127,7 +146,25 @@ bool Database::isKeyExists(qint32 id, QByteArray key)
 	QSqlQuery query(m_db);
 	
 	// Поиск строки, которая содержит id и key
-	return false;
+	query.prepare("select * "
+				  "from morse.authorization az "
+				  "where az.id_au=:id and az.key=:key");
+	query.bindValue(":id", id);
+	query.bindValue(":key", key);
+	if (!query.exec())
+	{
+		qWarning(qPrintable(query.lastError().text()));
+		qFatal("Error while searching for an authorization key in the DB");
+	}
+	
+	if (query.first())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 // Получение количества слов в БД
