@@ -17,6 +17,12 @@ void MainView::service(HttpRequest &request, HttpResponse &response)
 	service(request, response, "", "", "");
 }
 
+// Вывод страницы с загаданным словом и количеством очков, но без предыдущего результата
+void MainView::service(HttpRequest &request, HttpResponse &response, QString score, QString message)
+{
+	service(request, response, score, message, "");
+}
+
 // Вывод страницы с сообщениями от сервера
 void MainView::service(HttpRequest &request, HttpResponse &response, QString score, QString message, QString error)
 {

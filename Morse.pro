@@ -44,6 +44,7 @@ SOURCES += \
         src/MorseServer.cpp \
         src/controllers/AbstractController.cpp \
         src/controllers/AuthenticationController.cpp \
+        src/controllers/DeauthorizationController.cpp \
         src/controllers/MainController.cpp \
         src/controllers/RegistrationController.cpp \
         src/main.cpp \
@@ -63,6 +64,7 @@ HEADERS += \
 	src/MorseServer.h \
 	src/controllers/AbstractController.h \
 	src/controllers/AuthenticationController.h \
+	src/controllers/DeauthorizationController.h \
 	src/controllers/MainController.h \
 	src/controllers/RegistrationController.h \
 	src/models/AccessModel.h \

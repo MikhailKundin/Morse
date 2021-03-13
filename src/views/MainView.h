@@ -9,6 +9,7 @@ public:
 	MainView(QObject* parent = nullptr);
 	
 	void service(HttpRequest& request, HttpResponse& response);
+	void service(HttpRequest& request, HttpResponse& response, QString score, QString message);
 	void service(HttpRequest& request, HttpResponse& response, QString score, QString message, QString error);
 };
 

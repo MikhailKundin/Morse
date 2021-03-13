@@ -48,10 +48,12 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	
 	qInfo("Settings loaded");
 	
+	QByteArray domain = listenerSettings->value("host").toByteArray();
+	qint32 port = listenerSettings->value("port").toInt();	
 	// Сопоставление страницы и контроллера
-	controllers.insert("/sign-up", new RegistrationController(this));
-	controllers.insert("/sign-in", new AuthenticationController(this));
-	controllers.insert("/main", new MainController(this));
+	controllers.insert("/sign-up", new RegistrationController(domain, port, this));
+	controllers.insert("/sign-in", new AuthenticationController(domain, port, this));
+	controllers.insert("/main", new MainController(domain, port, this));
 	
 	// Заполнение списка типов статических файлов
 	staticList.append(".css");
