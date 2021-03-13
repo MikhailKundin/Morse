@@ -14,8 +14,8 @@ public:
 	
 protected:
 	virtual void updateKey(HttpRequest& request, HttpResponse& response, qint32 id);
-	virtual QByteArray hashPassword(QByteArray password, QByteArray salt);
-	virtual QByteArray generateSalt();
+	virtual QString hashPassword(QString password, QString salt);
+	virtual QString generateSalt();
 };
 
 #endif // MODEL_H

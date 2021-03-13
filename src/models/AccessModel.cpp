@@ -17,13 +17,13 @@ bool AccessModel::isRegistrationSuccessful(HttpRequest &request, HttpResponse& r
 	Q_UNUSED(response)
 	
 	// Проверка на существующий логин
-	QByteArray login = request.getParameter("login");
+	QString login = request.getParameter("login");
 	if (database->ifLoginExists(login))
 	{
 		return false;
 	}
 	
-	QByteArray password = request.getParameter("password");
+	QString password = request.getParameter("password");
 	
 	// Проверка размера пароля
 	if (password.length() < 8)
@@ -35,10 +35,9 @@ bool AccessModel::isRegistrationSuccessful(HttpRequest &request, HttpResponse& r
 	bool lowercase = false;
 	bool uppercase = false;
 	bool number = false;
-	QString passUtf8 = QString::fromUtf8(password);
-	for (qint16 i = 0; i < passUtf8.size(); i++)
+	for (qint16 i = 0; i < password.size(); i++)
 	{
-		QChar symbol = passUtf8.at(i);
+		QChar symbol = password.at(i);
 		if (symbol.isUpper())
 		{
 			uppercase = true;
@@ -63,7 +62,7 @@ bool AccessModel::isRegistrationSuccessful(HttpRequest &request, HttpResponse& r
 	}
 	
 	// Добавление нового пользователя
-	QByteArray salt = generateSalt();
+	QString salt = generateSalt();
 	password = hashPassword(password, salt);
 	database->addUser(login, password, salt);
 	return true;
@@ -72,11 +71,11 @@ bool AccessModel::isRegistrationSuccessful(HttpRequest &request, HttpResponse& r
 // Аутентификация
 bool AccessModel::isAuthenticationSuccessful(HttpRequest &request, HttpResponse &response)
 {
-	QByteArray login = request.getParameter("login");
-	QByteArray password = request.getParameter("password");
+	QString login = request.getParameter("login");
+	QString password = request.getParameter("password");
 	
-	QByteArray salt = "";
-	QByteArray hashedPassword = "";
+	QString salt = "";
+	QString hashedPassword = "";
 	qint32 id = -1;
 	
 	// Получение из БД строки login

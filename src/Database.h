@@ -10,13 +10,13 @@ class Database : public QObject
 public:
 	Database(QSettings* databaseSettings, QObject* parent = nullptr);
 	
-	bool ifLoginExists(QByteArray login);
-	void addUser(QByteArray login, QByteArray password, QByteArray salt);
+	bool ifLoginExists(QString login);
+	void addUser(QString login, QString password, QString salt);
 	
-	bool getUserInfo(QByteArray login, qint32& id, QByteArray& password, QByteArray& salt);
+	bool getUserInfo(QString login, qint32& id, QString& password, QString& salt);
 	
-	void updateKey(qint32 id, QByteArray key);
-	bool isKeyExists(qint32 id, QByteArray key);
+	void updateKey(qint32 id, QString key);
+	bool isKeyExists(qint32 id, QString key);
 	
 	quint32 getWordCount();
 	QString getWord(qint32 id);

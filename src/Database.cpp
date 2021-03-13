@@ -25,7 +25,7 @@ Database::Database(QSettings *databaseSettings, QObject *parent)
 }
 
 // Проверка наличия логина в БД
-bool Database::ifLoginExists(QByteArray login)
+bool Database::ifLoginExists(QString login)
 {
 	QSqlQuery query(m_db);
 	
@@ -53,7 +53,7 @@ bool Database::ifLoginExists(QByteArray login)
 }
 
 // Добавление логина и пароля в БД
-void Database::addUser(QByteArray login, QByteArray password, QByteArray salt)
+void Database::addUser(QString login, QString password, QString salt)
 {
 	QSqlQuery query(m_db);
 	// Добавление login, password, salt в базу данных
@@ -95,7 +95,7 @@ void Database::addUser(QByteArray login, QByteArray password, QByteArray salt)
 }
 
 // Получение идентификатора, пароля и соли пользователя
-bool Database::getUserInfo(QByteArray login, qint32 &id, QByteArray &password, QByteArray &salt)
+bool Database::getUserInfo(QString login, qint32 &id, QString &password, QString &salt)
 {
 	QSqlQuery query(m_db);
 	
@@ -123,7 +123,7 @@ bool Database::getUserInfo(QByteArray login, qint32 &id, QByteArray &password, Q
 }
 
 // Добавление ключа конкретному пользователю
-void Database::updateKey(qint32 id, QByteArray key)
+void Database::updateKey(qint32 id, QString key)
 {
 	QSqlQuery query(m_db);
 	
@@ -141,7 +141,7 @@ void Database::updateKey(qint32 id, QByteArray key)
 }
 
 // Поиск связки пользоваетль-ключ
-bool Database::isKeyExists(qint32 id, QByteArray key)
+bool Database::isKeyExists(qint32 id, QString key)
 {
 	QSqlQuery query(m_db);
 	

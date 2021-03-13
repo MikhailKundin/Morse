@@ -1,0 +1,193 @@
+13.03.2021 18:31:49.561 0 DEBUG     HttpConnectionHandler (0x1eba3ab0320): handle new connection QtWebApp\httpserver\httpconnectionhandler.cpp 82
+13.03.2021 18:31:49.562 0 DEBUG     HttpConnectionHandler (0x1eba3ab0320): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: from 127.0.0.1: POST /sign-up HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header content-type: application/x-www-form-urlencoded QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header content-length: 39 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header origin: http://localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header referer: http://localhost:8096/sign-up QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: expect 39 bytes body QtWebApp\httpserver\httprequest.cpp 143
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: receive body QtWebApp\httpserver\httprequest.cpp 157
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 18:31:49.562 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 18:31:49.562 0 DEBUG     HttpConnectionHandler (0x1eba3ab0320): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 18:31:49.568 0 DEBUG     Test123 does not exists src\Database.cpp 50
+13.03.2021 18:31:49.604 1 WARNING   ??????:  ?????? ?????????? (????????? ?????????: "(")
+LINE 1: EXECUTE  ('NULL', '\x54657374313233')
+                 ^
+(42601) QPSQL: Unable to create query src\Database.cpp 79
+13.03.2021 18:31:49.911 3 FATAL     Error adding row to authorization table src\Database.cpp 80
+13.03.2021 20:48:23.309 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): handle new connection QtWebApp\httpserver\httpconnectionhandler.cpp 82
+13.03.2021 20:48:23.455 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:48:23.455 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: from 127.0.0.1: GET /sign-in HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:48:23.456 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:48:23.456 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:48:23.456 0 DEBUG     TemplateCache: trying cached auth QtWebApp\templateengine\templatecache.cpp 22
+13.03.2021 20:48:23.456 0 DEBUG     TemplateCache: trying file D:/QtProjects/Morse/etc/static/html/auth.html QtWebApp\templateengine\templateloader.cpp 54
+13.03.2021 20:48:23.484 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): finished request QtWebApp\httpserver\httpconnectionhandler.cpp 231
+13.03.2021 20:48:23.538 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: from 127.0.0.1: GET /css/styleauth.css HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header accept: text/css,*/*;q=0.1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.538 0 DEBUG     HttpRequest: received header referer: http://localhost:8096/sign-in QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.539 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:48:23.539 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
+13.03.2021 20:48:23.539 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:48:23.539 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:48:23.539 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:48:23.539 0 DEBUG     StaticFileController: Cache miss for /css/styleauth.css QtWebApp\httpserver\staticfilecontroller.cpp 62
+13.03.2021 20:48:23.539 0 DEBUG     StaticFileController: Open file D:/QtProjects/Morse/etc/static/css/styleauth.css QtWebApp\httpserver\staticfilecontroller.cpp 78
+13.03.2021 20:48:23.559 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): finished request QtWebApp\httpserver\httpconnectionhandler.cpp 231
+13.03.2021 20:48:23.569 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:48:23.569 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:48:23.569 0 DEBUG     HttpRequest: from 127.0.0.1: GET /favicon.ico HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header accept: image/webp,*/* QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: received header referer: http://localhost:8096/sign-in QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:48:23.570 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:48:23.570 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:48:23.570 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): finished request QtWebApp\httpserver\httpconnectionhandler.cpp 231
+13.03.2021 20:48:27.988 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: from 127.0.0.1: GET /sign-up HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.988 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:27.989 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:48:27.989 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
+13.03.2021 20:48:27.989 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:48:27.989 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:48:27.989 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:48:27.989 0 DEBUG     TemplateCache: trying cached reg QtWebApp\templateengine\templatecache.cpp 22
+13.03.2021 20:48:27.989 0 DEBUG     TemplateCache: trying file D:/QtProjects/Morse/etc/static/html/reg.html QtWebApp\templateengine\templateloader.cpp 54
+13.03.2021 20:48:27.989 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): finished request QtWebApp\httpserver\httpconnectionhandler.cpp 231
+13.03.2021 20:48:28.057 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: from 127.0.0.1: GET /css/stylereg.css HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header accept: text/css,*/*;q=0.1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: received header referer: http://localhost:8096/sign-up QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:48:28.058 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:48:28.058 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:48:28.058 0 DEBUG     StaticFileController: Cache miss for /css/stylereg.css QtWebApp\httpserver\staticfilecontroller.cpp 62
+13.03.2021 20:48:28.059 0 DEBUG     StaticFileController: Open file D:/QtProjects/Morse/etc/static/css/stylereg.css QtWebApp\httpserver\staticfilecontroller.cpp 78
+13.03.2021 20:48:28.059 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): finished request QtWebApp\httpserver\httpconnectionhandler.cpp 231
+13.03.2021 20:48:38.072 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read timeout occured QtWebApp\httpserver\httpconnectionhandler.cpp 129
+13.03.2021 20:48:38.073 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): disconnected QtWebApp\httpserver\httpconnectionhandler.cpp 143
+13.03.2021 20:48:42.723 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): handle new connection QtWebApp\httpserver\httpconnectionhandler.cpp 82
+13.03.2021 20:48:42.725 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:48:42.725 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:48:42.725 0 DEBUG     HttpRequest: from 127.0.0.1: POST /sign-up HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header content-type: application/x-www-form-urlencoded QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header content-length: 36 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header origin: http://localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header referer: http://localhost:8096/sign-up QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: expect 36 bytes body QtWebApp\httpserver\httprequest.cpp 143
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: receive body QtWebApp\httpserver\httprequest.cpp 157
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:48:42.726 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:48:42.726 0 DEBUG     HttpConnectionHandler (0x2a1547ee8d0): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:48:42.730 0 DEBUG     Test does not exists src\Database.cpp 50
+13.03.2021 20:48:42.901 1 WARNING   ??????:  ?????? ?????????? (????????? ?????????: "(")
+LINE 1: EXECUTE  ('NULL', 'Test')
+                 ^
+(42601) QPSQL: Unable to create query src\Database.cpp 79
+13.03.2021 20:48:42.920 3 FATAL     Error adding row to authorization table src\Database.cpp 80
+13.03.2021 20:56:03.094 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): handle new connection QtWebApp\httpserver\httpconnectionhandler.cpp 82
+13.03.2021 20:56:03.096 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:56:03.096 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:56:03.096 0 DEBUG     HttpRequest: from 127.0.0.1: GET /sign-up HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:56:03.096 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.096 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:56:03.097 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:56:03.097 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:56:03.098 0 DEBUG     TemplateCache: trying cached reg QtWebApp\templateengine\templatecache.cpp 22
+13.03.2021 20:56:03.098 0 DEBUG     TemplateCache: trying file D:/QtProjects/Morse/etc/static/html/reg.html QtWebApp\templateengine\templateloader.cpp 54
+13.03.2021 20:56:03.099 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): finished request QtWebApp\httpserver\httpconnectionhandler.cpp 231
+13.03.2021 20:56:13.103 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): read timeout occured QtWebApp\httpserver\httpconnectionhandler.cpp 129
+13.03.2021 20:56:13.104 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): disconnected QtWebApp\httpserver\httpconnectionhandler.cpp 143
+13.03.2021 20:56:16.166 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): handle new connection QtWebApp\httpserver\httpconnectionhandler.cpp 82
+13.03.2021 20:56:16.167 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
+13.03.2021 20:56:16.167 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
+13.03.2021 20:56:16.167 0 DEBUG     HttpRequest: from 127.0.0.1: POST /sign-up HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
+13.03.2021 20:56:16.167 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.167 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.167 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header content-type: application/x-www-form-urlencoded QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header content-length: 36 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header origin: http://localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header referer: http://localhost:8096/sign-up QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: expect 36 bytes body QtWebApp\httpserver\httprequest.cpp 143
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: receive body QtWebApp\httpserver\httprequest.cpp 157
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
+13.03.2021 20:56:16.168 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
+13.03.2021 20:56:16.168 0 DEBUG     HttpConnectionHandler (0x1fa5da9f350): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
+13.03.2021 20:56:16.172 0 DEBUG     Test does not exists src\Database.cpp 50
+13.03.2021 20:56:16.246 1 WARNING   ??????:  ?????? ?????????? (????????? ?????????: "(")
+LINE 1: EXECUTE  ('NULL', 'Test')
+                 ^
+(42601) QPSQL: Unable to create query src\Database.cpp 79
+13.03.2021 20:56:16.249 3 FATAL     Error adding row to authorization table src\Database.cpp 80

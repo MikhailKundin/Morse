@@ -19,7 +19,7 @@ Model::Model(QObject *parent)
 bool Model::isAuthorized(HttpRequest &request, HttpResponse &response)
 {
 	qint32 id = request.getCookie("id").toInt();
-	QByteArray key = request.getCookie("key");
+	QString key = request.getCookie("key");
 	
 	if (key == "NULL" || key == "")
 	{	
@@ -35,7 +35,7 @@ bool Model::isAuthorized(HttpRequest &request, HttpResponse &response)
 	}
 	
 	// Обновление ключа, если куки-таймер удалилась
-	QByteArray update = request.getCookie("updateKey");
+	QString update = request.getCookie("updateKey");
 	if (update == "")
 	{
 		updateKey(request, response, id);
@@ -52,35 +52,35 @@ void Model::updateKey(HttpRequest &request, HttpResponse &response, qint32 id)
 	
 	// Генерация нового ключа
 	HttpSession session = sessionStore->getSession(request, response);
-	QByteArray key = session.getId();
-	QByteArray salt = generateSalt();
+	QString key = session.getId();
+	QString salt = generateSalt();
 	key = hashPassword(key, salt);
 	
 	// Запись ключа в БД
 	database->updateKey(id, key);
 	
 	// Запись ключа в куку
-	HttpCookie keyCookie("key", key, 31536000); // 365 дней
+	HttpCookie keyCookie("key", key.toUtf8(), 31536000); // 365 дней
 	keyCookie.setHttpOnly(true);
 	response.setCookie(keyCookie);
 }
 
 // Хеширование пароля
-QByteArray Model::hashPassword(QByteArray password, QByteArray salt)
+QString Model::hashPassword(QString password, QString salt)
 {
 	password += salt+"Gz7.kA02Gkl&QG>m";
 	for (quint8 i = 0; i < 255; i++)
 	{
-		password = QCryptographicHash::hash(password, QCryptographicHash::Sha512);
+		password = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha512);
 	}
 	return password;
 }
 
 // Генерация "соли"
-QByteArray Model::generateSalt()
+QString Model::generateSalt()
 {
-	QByteArray salt;
-	QByteArray saltSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	QString salt;
+	QString saltSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 							 "abcdefghijklmnopqrstuvwxyz"
 							 "0123456789"
 							 "!@#$%^&*()_+№;:?-+{}[]<>,.";
