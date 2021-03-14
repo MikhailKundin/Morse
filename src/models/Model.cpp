@@ -71,7 +71,7 @@ QString Model::hashPassword(QString password, QString salt)
 	password += salt+"Gz7.kA02Gkl&QG>m";
 	for (quint8 i = 0; i < 255; i++)
 	{
-		password = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha512);
+		password = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha512).toHex();
 	}
 	return password;
 }
