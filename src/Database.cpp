@@ -131,8 +131,8 @@ void Database::updateKey(qint32 id, QString key)
 	query.prepare("update morse.\"authorization\" az "
 				  "set \"key\" = :key "
 				  "where id_au = :id");
-	query.bindValue("id", id);
-	query.bindValue("key", key);
+	query.bindValue(":id", id);
+	query.bindValue(":key", key);
 	if (!query.exec())
 	{
 		qWarning(qPrintable(query.lastError().text()));

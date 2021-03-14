@@ -18,6 +18,8 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	// Загрузка настроек сервера
 	QSettings* listenerSettings = new QSettings(configFullName, QSettings::IniFormat, this);
     listenerSettings->beginGroup("listener");
+	QByteArray domain = listenerSettings->value("host").toByteArray();
+	qint32 port = listenerSettings->value("port").toInt();	
     new HttpListener(listenerSettings, this, this);
 	
 	// Загрука настроек сессий
@@ -48,8 +50,6 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	
 	qInfo("Settings loaded");
 	
-	QByteArray domain = listenerSettings->value("host").toByteArray();
-	qint32 port = listenerSettings->value("port").toInt();	
 	// Сопоставление страницы и контроллера
 	controllers.insert("/sign-up", new RegistrationController(domain, port, this));
 	controllers.insert("/sign-in", new AuthenticationController(domain, port, this));
