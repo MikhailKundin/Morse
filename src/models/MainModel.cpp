@@ -19,7 +19,7 @@ QString MainModel::getWord(HttpRequest &request, HttpResponse &response)
 {
 	// Получение слова из БД
 	quint32 wordCount = database->getWordCount();
-	qint32 wordId = static_cast<qint32>(QRandomGenerator::global()->generate() % wordCount);
+	qint32 wordId = static_cast<qint32>(QRandomGenerator::global()->generate() % wordCount + 1);
 	QString word = database->getWord(wordId);
 	
 	// Запись слова в сессию
