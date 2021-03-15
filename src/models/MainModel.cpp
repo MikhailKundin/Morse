@@ -47,7 +47,7 @@ bool MainModel::checkCode(HttpRequest &request, HttpResponse &response, QString 
 	QString word = session.get("word").toString();
 	
 	// Получение кода из куки
-	QString code = request.getParameter("code");
+	QString code = request.getParameter("word");
 	
 	// Получени кода из БД
 	correctCode = database->getCode(word);
