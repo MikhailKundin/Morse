@@ -5,6 +5,7 @@
 #include "controllers/RegistrationController.h"
 #include "controllers/AuthenticationController.h"
 #include "controllers/MainController.h"
+#include "controllers/DeauthorizationController.h"
 
 HttpSessionStore* sessionStore;
 StaticFileController* staticFileController;
@@ -18,8 +19,7 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	// Загрузка настроек сервера
 	QSettings* listenerSettings = new QSettings(configFullName, QSettings::IniFormat, this);
     listenerSettings->beginGroup("listener");
-	QByteArray domain = listenerSettings->value("host").toByteArray();
-	qint32 port = listenerSettings->value("port").toInt();	
+	QString domain = listenerSettings->value("domain").toString();
     new HttpListener(listenerSettings, this, this);
 	
 	// Загрука настроек сессий
@@ -51,9 +51,10 @@ MorseServer::MorseServer(QString configFullName, QObject *parent)
 	qInfo("Settings loaded");
 	
 	// Сопоставление страницы и контроллера
-	controllers.insert("/sign-up", new RegistrationController(domain, port, this));
-	controllers.insert("/sign-in", new AuthenticationController(domain, port, this));
-	controllers.insert("/main", new MainController(domain, port, this));
+	controllers.insert("/sign-up", new RegistrationController(domain, this));
+	controllers.insert("/sign-in", new AuthenticationController(domain, this));
+	controllers.insert("/sign-out", new DeauthorizationController(domain, this));
+	controllers.insert("/main", new MainController(domain, this));
 	
 	// Заполнение списка типов статических файлов
 	staticList.append(".css");

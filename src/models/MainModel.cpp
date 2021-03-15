@@ -45,6 +45,10 @@ bool MainModel::checkCode(HttpRequest &request, HttpResponse &response, QString 
 	// Получение слова из сессии
 	HttpSession session = sessionStore->getSession(request, response);
 	QString word = session.get("word").toString();
+	if (word == "")
+	{
+		return false;
+	}
 	
 	// Получение кода из куки
 	QString code = request.getParameter("word");

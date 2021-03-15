@@ -8,14 +8,13 @@ class AccessModel;
 class DeauthorizationController : public AbstractController
 {
 public:
-	DeauthorizationController(QByteArray domain, qint32 port, QObject* parent = nullptr);
+	DeauthorizationController(QString domain, QObject* parent = nullptr);
 	virtual void service(HttpRequest& request, HttpResponse& response) override;
 	
 private:
 	AccessModel* model;
 	
-	QByteArray m_domain = "";
-	qint32 m_port = 0;
+	QString m_domain = "";
 };
 
 #endif // DEAUTHORIZATIONCONTROLLER_H

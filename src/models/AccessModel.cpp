@@ -1,6 +1,7 @@
 #include "AccessModel.h"
 
 #include "../Database.h"
+#include "httpsessionstore.h"
 
 extern Database* database;
 extern HttpSessionStore* sessionStore;
@@ -111,5 +112,9 @@ void AccessModel::deauthorization(HttpRequest &request, HttpResponse &response)
 {
 	qint32 id = request.getCookie("id").toInt();
 	database->updateKey(id, "NULL");
-	response.setCookie(HttpCookie("key", "NULL", 0));
+	sessionStore->removeSession(sessionStore->getSession(request, response, false));
+	response.setCookie(HttpCookie("key", "NULL", -1));
+	response.setCookie(HttpCookie("id", "NULL", -1));
+	response.setCookie(HttpCookie("updateKey", "NULL", -1));
+	response.setCookie(HttpCookie("sessionid", "NULL", -1));
 }

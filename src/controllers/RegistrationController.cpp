@@ -3,14 +3,13 @@
 #include "../models/AccessModel.h"
 #include "../views/AccessView.h"
 
-RegistrationController::RegistrationController(QByteArray domain, qint32 port, QObject *parent) :
+RegistrationController::RegistrationController(QString domain, QObject *parent) :
 	AbstractController(parent)
 {
 	model = new AccessModel(this);
 	view = new AccessView(this);
 	
 	m_domain = domain;
-	m_port = port;
 }
 
 void RegistrationController::service(HttpRequest &request, HttpResponse &response)
@@ -19,7 +18,7 @@ void RegistrationController::service(HttpRequest &request, HttpResponse &respons
 	{
 		if (model->isAuthorized(request, response))
 		{
-			response.redirect("http://"+m_domain+":"+QByteArray::number(m_port)+"/main");
+			response.redirect("http://"+m_domain.toUtf8()+"/main");
 		}
 		else
 		{
@@ -30,7 +29,7 @@ void RegistrationController::service(HttpRequest &request, HttpResponse &respons
 	{
 		if (model->isRegistrationSuccessful(request, response))
 		{
-			response.redirect("http://"+m_domain+":"+QByteArray::number(m_port)+"/sign-in");
+			response.redirect("http://"+m_domain.toUtf8()+"/sign-in");
 		}
 		else
 		{

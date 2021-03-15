@@ -3,14 +3,13 @@
 #include "../models/MainModel.h"
 #include "../views/MainView.h"
 
-MainController::MainController(QByteArray domain, qint32 port, QObject *parent) :
+MainController::MainController(QString domain, QObject *parent) :
 	AbstractController(parent)
 {
 	model = new MainModel(this);
 	view = new MainView(this);
 	
 	m_domain = domain;
-	m_port = port;
 }
 
 void MainController::service(HttpRequest &request, HttpResponse &response)
@@ -19,7 +18,7 @@ void MainController::service(HttpRequest &request, HttpResponse &response)
 	{
 		if (!model->isAuthorized(request, response))
 		{
-			response.redirect("http://"+m_domain+":"+QByteArray::number(m_port)+"/sign-in");
+			response.redirect("http://"+m_domain.toUtf8()+"/sign-in");
 		}
 		else
 		{
@@ -30,20 +29,27 @@ void MainController::service(HttpRequest &request, HttpResponse &response)
 	}
 	else
 	{
-		QString correctCode = "";
-		QString message = "";
-		if (model->checkCode(request, response, correctCode))
+		if (!model->isAuthorized(request, response))
 		{
-			message = "Вы ответили правильно!";
-			model->addPoints(request, response, 1);
+			response.redirect("http://"+m_domain.toUtf8()+"/sign-in");
 		}
 		else
 		{
-			message = "Вы ответили неправильно! Правильный ответ: "+correctCode;
+			QString correctCode = "";
+			QString message = "";
+			if (model->checkCode(request, response, correctCode))
+			{
+				message = "Вы ответили правильно!";
+				model->addPoints(request, response, 1);
+			}
+			else
+			{
+				message = "Вы ответили неправильно!<br />Правильный ответ: "+correctCode;
+			}
+			
+			QString word = model->getWord(request, response);
+			qint32 points = model->getPoints(request, response);
+			view->service(request, response, word, QString::number(points), message);
 		}
-		
-		QString word = model->getWord(request, response);
-		qint32 points = model->getPoints(request, response);
-		view->service(request, response, word, QString::number(points), message);
 	}
 }
