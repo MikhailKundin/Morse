@@ -1,23 +1,5 @@
-15.03.2021 02:23:21.740 0 DEBUG     HttpConnectionHandler (0x1d26de5c820): handle new connection QtWebApp\httpserver\httpconnectionhandler.cpp 82
-15.03.2021 02:23:21.740 0 DEBUG     HttpConnectionHandler (0x1d26de5c820): read input QtWebApp\httpserver\httpconnectionhandler.cpp 155
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: read request QtWebApp\httpserver\httprequest.cpp 27
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: from 127.0.0.1: GET /main HTTP/1.1 QtWebApp\httpserver\httprequest.cpp 44
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header host: localhost:8096 QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0 QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3 QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header accept-encoding: gzip, deflate QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header connection: keep-alive QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header cookie: id=17; key=ecaf33ae659ffaca9bc270c54168fbe8b2eb600b3ce013869f92bcb72b31d51e9f9eae7ff6cbceafd7234b0afbcece733115e9c69c353c1225f92385e5fd183e; sessionid={0a721d88-65b1-460b-be86-369a441f44e4}; updateKey=Updated QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: received header upgrade-insecure-requests: 1 QtWebApp\httpserver\httprequest.cpp 85
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: headers completed QtWebApp\httpserver\httprequest.cpp 103
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: expect no body QtWebApp\httpserver\httprequest.cpp 127
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: extract and decode request parameters QtWebApp\httpserver\httprequest.cpp 216
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: extract cookies QtWebApp\httpserver\httprequest.cpp 262
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: found cookie id=17 QtWebApp\httpserver\httprequest.cpp 270
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: found cookie key=ecaf33ae659ffaca9bc270c54168fbe8b2eb600b3ce013869f92bcb72b31d51e9f9eae7ff6cbceafd7234b0afbcece733115e9c69c353c1225f92385e5fd183e QtWebApp\httpserver\httprequest.cpp 270
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: found cookie sessionid={0a721d88-65b1-460b-be86-369a441f44e4} QtWebApp\httpserver\httprequest.cpp 270
-15.03.2021 02:23:21.740 0 DEBUG     HttpRequest: found cookie updateKey=Updated QtWebApp\httpserver\httprequest.cpp 270
-15.03.2021 02:23:21.740 0 DEBUG     HttpConnectionHandler (0x1d26de5c820): received request QtWebApp\httpserver\httpconnectionhandler.cpp 192
-15.03.2021 02:23:21.750 0 DEBUG     The dictionary has 50 lines src\Database.cpp 192
-15.03.2021 02:23:21.750 1 WARNING   Found the word "? ? ? ? ? ? ? ? ? ?" by id 7 src\Database.cpp 221
+15.03.2021 17:17:28.778 4 INFO      Connecting to database... src\Database.cpp 10
+15.03.2021 17:17:28.888 4 INFO      Connected to database src\Database.cpp 19
+15.03.2021 17:17:28.888 4 INFO      Settings loaded src\MorseServer.cpp 51
+15.03.2021 17:17:28.888 4 INFO      Server is running src\MorseServer.cpp 65
+15.03.2021 17:17:28.888 3 FATAL     Test fatal!!! src\MorseServer.cpp 66
