@@ -17,6 +17,24 @@ form {
 	padding: 20px;
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
 }
+#emailErrSign
+{
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+  font-size: 14px;
+  top: 32px;
+  left: 250px;
+  width: 15px;
+  height: 15px;
+  background-color: #cc0000;
+  border-radius: 50%;
+  position: absolute;
+  cursor: default;
+  transition: 1s;
+  display: none;
+user-select: none
+}
 .group {
 	margin: 10px;
 	padding: 5px;

@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/styleauth.css">
 </head>
 
-<body>
+<body background="pictures/alpf.jpg">
 	
 		
 	
@@ -21,18 +21,18 @@
 		
 		<div class="group">
 			<label for="">Ответ:</label>
-			<input type="text" name="word">
+			<input type="text" name="word" id = "code">
 		</div>
 		<div class="group">
 			<center><button type="submit" name="submit">Проверить</button></center>
 		</div>
 		<div class="group">
-			<center><input type="button" value="Выход" onClick='location.href="/sign-in"'></center>
+			<center><input type="button" value="Выход" onClick='location.href="/sign-out"'></center>
 		</div>
 		<div id="word">
 			<span>{err}</span>
 		</div>
 	</form>
-
+<script src="js/particles.js"></script>	
 </body>
 </html>
